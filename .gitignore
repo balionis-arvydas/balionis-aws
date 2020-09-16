@@ -1,6 +1,7 @@
 # Work Folders
 **/build/*
 **/.gradle/*
+**/.idea/*
 
 # Package Files
 *.zip
