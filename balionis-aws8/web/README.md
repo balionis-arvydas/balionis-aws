@@ -3,7 +3,7 @@
 ## Package
 
 ```
-$ ./gradlew zip
+$ ./gradlew clean build
 
 $ aws s3 mb s3://balionis-aws8-web
 

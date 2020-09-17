@@ -1,0 +1,10 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+	  "Resource": "arn:aws:dynamodb:eu-west-2:613877803204:table/Rides",
+      "Action": "dynamodb:PutItem"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+group = 'com.balionis'
+version = APP_VERSION
+
+task clean {
+	delete './build'
+}
+
+task build (type: Zip) {
+	from 'src/main/js/'
+	include '**/*' 
+	archiveName rootProject.name + '-' + APP_VERSION + '.zip'
+	destinationDir(file('./build/'))
+}

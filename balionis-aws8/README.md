@@ -43,4 +43,14 @@ $ aws cognito-idp create-user-pool-client --user-pool-id eu-west-2_fxjx8gPKy \
         "AllowedOAuthFlowsUserPoolClient": false
     }
 }
+
+$ vi balionis-aws8\web\public\js\config.js
+window._config = {
+    cognito: {
+        userPoolId: 'eu-west-2_fxjx8gPKy', 
+        userPoolClientId: '6ijp32grl9fosof9p18mlg18tj', 
+        region: 'eu-west-2'
+    },
+	....
+};
 ```
