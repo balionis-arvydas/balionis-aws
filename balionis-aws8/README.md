@@ -15,7 +15,7 @@ See [./web/README.md](./web/README.md)
 $ aws cognito-idp create-user-pool --pool-name balionis-aws8-users
 {
     "UserPool": {
-        "Id": "eu-west-2_fxjx8gPKy",
+        "Id": "eu-west-2_Vi7WVYVkn",
         "Name": "balionis-aws8-users",
         "Policies": {
             "PasswordPolicy": {
@@ -27,18 +27,21 @@ $ aws cognito-idp create-user-pool --pool-name balionis-aws8-users
                 "TemporaryPasswordValidityDays": 7
             }
         },
+        "LambdaConfig": {},
 // ...
+        "Arn": "arn:aws:cognito-idp:eu-west-2:613877803204:userpool/eu-west-2_Vi7WVYVkn"
+    }
 }
 
-$ aws cognito-idp create-user-pool-client --user-pool-id eu-west-2_fxjx8gPKy \
+$ aws cognito-idp create-user-pool-client --user-pool-id eu-west-2_Vi7WVYVkn \
     --client-name balionis-aws8-users-client --no-generate-secret
 {
     "UserPoolClient": {
-        "UserPoolId": "eu-west-2_fxjx8gPKy",
+        "UserPoolId": "eu-west-2_Vi7WVYVkn",
         "ClientName": "balionis-aws8-users-client",
-        "ClientId": "6ijp32grl9fosof9p18mlg18tj",
-        "LastModifiedDate": "2020-09-16T19:06:20.705000+02:00",
-        "CreationDate": "2020-09-16T19:06:20.705000+02:00",
+        "ClientId": "2ilhgdf1a8m8n0us52ledi3bh3",
+        "LastModifiedDate": "2020-09-18T08:12:38.660000+02:00",
+        "CreationDate": "2020-09-18T08:12:38.660000+02:00",
         "RefreshTokenValidity": 30,
         "AllowedOAuthFlowsUserPoolClient": false
     }
@@ -47,8 +50,8 @@ $ aws cognito-idp create-user-pool-client --user-pool-id eu-west-2_fxjx8gPKy \
 $ vi balionis-aws8\web\public\js\config.js
 window._config = {
     cognito: {
-        userPoolId: 'eu-west-2_fxjx8gPKy', 
-        userPoolClientId: '6ijp32grl9fosof9p18mlg18tj', 
+        userPoolId: 'eu-west-2_Vi7WVYVkn', 
+        userPoolClientId: '2ilhgdf1a8m8n0us52ledi3bh3', 
         region: 'eu-west-2'
     },
 	....
