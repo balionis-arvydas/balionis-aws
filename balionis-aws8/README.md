@@ -12,7 +12,7 @@ See [./web/README.md](./web/README.md)
 ## Security (Cognito)
 
 ```
-$ aws cognito-idp create-user-pool --pool-name balionis-aws8-users
+$ aws cognito-idp create-user-pool --pool-name balionis-aws8-users --auto-verified-attributes email
 {
     "UserPool": {
         "Id": "eu-west-2_Vi7WVYVkn",
