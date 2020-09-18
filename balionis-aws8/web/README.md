@@ -20,13 +20,13 @@ $ aws s3 ls s3://balionis-aws8
 $ aws amplify create-app --name balionis-aws8-web
 {
     "app": {
-        "appId": "d3qi80ycr1p7c0",
-        "appArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0",
+        "appId": "d2jvwbzkj7re2a",
+        "appArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a",
         "name": "balionis-aws8-web",
         "platform": "WEB",
-        "createTime": "2020-09-16T12:25:21.541000+02:00",
-        "updateTime": "2020-09-16T12:25:21.541000+02:00",
-        "defaultDomain": "d3qi80ycr1p7c0.amplifyapp.com",
+        "createTime": "2020-09-18T07:49:23.953000+02:00",
+        "updateTime": "2020-09-18T07:49:23.953000+02:00",
+        "defaultDomain": "d2jvwbzkj7re2a.amplifyapp.com",
         "enableBranchAutoBuild": false,
         "enableBranchAutoDeletion": false,
         "enableBasicAuth": false,
@@ -35,45 +35,55 @@ $ aws amplify create-app --name balionis-aws8-web
     }
 }
 
-$ aws amplify create-branch --app-id d3qi80ycr1p7c0 --branch-name dev
+$ aws amplify create-branch --app-id d2jvwbzkj7re2a --branch-name dev
 {
     "branch": {
-        "branchArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0/branches/dev",
+        "branchArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a/branches/dev",
         "branchName": "dev",
         "stage": "NONE",
         "displayName": "dev",
         "enableNotification": false,
-        "createTime": "2020-09-16T12:35:39.390000+02:00",
-        "updateTime": "2020-09-16T12:35:39.390000+02:00",
+        "createTime": "2020-09-18T07:49:55.766000+02:00",
+        "updateTime": "2020-09-18T07:49:55.766000+02:00",
         "enableAutoBuild": true,
         "totalNumberOfJobs": "0",
         "enableBasicAuth": false,
-        "thumbnailUrl": "https://aws-amplify-prod-eu-west..."
-		///...
-	}
+        "thumbnailUrl": "https://aws-amplify-prod-eu-west-2-artifacts.s3.eu-west-2.amazonaws.com/...",
+        "ttl": "5",
+        "enablePullRequestPreview": false
+    }
 }
 
-$ aws amplify start-deployment --app-id d3qi80ycr1p7c0 --branch-name dev \
+$ aws amplify start-deployment --app-id d2jvwbzkj7re2a --branch-name dev \
 	--source-url s3://balionis-aws8/balionis-aws8-web-1.0-SNAPSHOT.zip
 {
     "jobSummary": {
-        "jobArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0/branches/dev/jobs/0000000001",
+        "jobArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a/branches/dev/jobs/0000000001",
         "jobId": "1",
         "status": "PENDING"
     }
 }
+```
 
-$ aws amplify get-job --app-id d3qi80ycr1p7c0 --branch-name dev --job-id 3 | grep status
+$ aws amplify get-job --app-id d2jvwbzkj7re2a --branch-name dev --job-id 1 | grep status
 
-// curl -s -X GET https://{branch-name}.{app-id}.amplifyapp.com
-$ curl -s -X GET https://dev.d3qi80ycr1p7c0.amplifyapp.com | head -20
+## Test
 
-## Deploy (dev.tenu.com)
+__IMPORTANT! There is no aws cli to extract the app url. Instead, use the template "https://{branch-name}.{app-id}.amplifyapp.com"__
 
-$ aws amplify create-domain-association --app-id d3qi80ycr1p7c0 --domain-name tenu.com --sub-domain-settings "prefix=dev,branchName=dev"
+```
+$ curl -s -X GET https://dev.d2jvwbzkj7re2a.amplifyapp.com | head -20
+```
+
+## Associate (dev.tenu.com)
+
+```
+$ aws amplify create-domain-association --app-id d2jvwbzkj7re2a \
+    --domain-name tenu.com --sub-domain-settings "prefix=dev,branchName=dev" \
+    --enable-auto-sub-domain
 {
     "domainAssociation": {
-        "domainAssociationArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0/domains/tenu.com",
+        "domainAssociationArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a/domains/tenu.com",
         "domainName": "tenu.com",
         "enableAutoSubDomain": false,
         "domainStatus": "CREATING",
@@ -90,10 +100,10 @@ $ aws amplify create-domain-association --app-id d3qi80ycr1p7c0 --domain-name te
     }
 }
 
-$ aws amplify get-domain-association  --app-id d3qi80ycr1p7c0 --domain-name tenu.com
+$ aws amplify get-domain-association  --app-id d2jvwbzkj7re2a --domain-name tenu.com
 {
     "domainAssociation": {
-        "domainAssociationArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0/domains/tenu.com",
+        "domainAssociationArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a/domains/tenu.com",
         "domainName": "tenu.com",
         "enableAutoSubDomain": false,
         "domainStatus": "AWAITING_APP_CNAME",
