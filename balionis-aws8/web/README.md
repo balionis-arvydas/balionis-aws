@@ -5,16 +5,16 @@
 ```
 $ ./gradlew clean build
 
-$ aws s3 mb s3://balionis-aws8-web
+$ aws s3 mb s3://balionis-aws8
 
-$ aws s3 cp ./build/balionis-aws8-web-1.0-SNAPSHOT.zip s3://balionis-aws8-web
+$ aws s3 cp ./build/balionis-aws8-web-1.0-SNAPSHOT.zip s3://balionis-aws8
 
-$ aws s3 ls s3://balionis-aws8-web
+$ aws s3 ls s3://balionis-aws8
 2020-09-16 11:07:33   11464152 balionis-aws8-web-1.0-SNAPSHOT.zip
 
 ``` 
 
-## Deploy 
+## Deploy (amplify)
 
 ```
 $ aws amplify create-app --name balionis-aws8-web
@@ -54,7 +54,7 @@ $ aws amplify create-branch --app-id d3qi80ycr1p7c0 --branch-name dev
 }
 
 $ aws amplify start-deployment --app-id d3qi80ycr1p7c0 --branch-name dev \
-	--source-url s3://balionis-aws8-web/balionis-aws8-web-1.0-SNAPSHOT.zip
+	--source-url s3://balionis-aws8/balionis-aws8-web-1.0-SNAPSHOT.zip
 {
     "jobSummary": {
         "jobArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d3qi80ycr1p7c0/branches/dev/jobs/0000000001",
@@ -67,6 +67,8 @@ $ aws amplify get-job --app-id d3qi80ycr1p7c0 --branch-name dev --job-id 3 | gre
 
 // curl -s -X GET https://{branch-name}.{app-id}.amplifyapp.com
 $ curl -s -X GET https://dev.d3qi80ycr1p7c0.amplifyapp.com | head -20
+
+## Deploy (dev.tenu.com)
 
 $ aws amplify create-domain-association --app-id d3qi80ycr1p7c0 --domain-name tenu.com --sub-domain-settings "prefix=dev,branchName=dev"
 {
