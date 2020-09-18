@@ -75,6 +75,12 @@ __IMPORTANT! There is no aws cli to extract the app url. Instead, use the templa
 $ curl -s -X GET https://dev.d2jvwbzkj7re2a.amplifyapp.com | head -20
 ```
 
+or, 
+
+1) run "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir=c://temp/chrome-cache
+2) open https://dev.d2jvwbzkj7re2a.amplifyapp.com/signup.html
+3) open https://dev.d2jvwbzkj7re2a.amplifyapp.com/ride.html
+
 ## Associate (dev.tenu.com)
 
 ```

@@ -57,3 +57,63 @@ window._config = {
 	....
 };
 ```
+
+## Lambda (Dynamo, NodeJs)
+
+See [./lambda/README.md](./lambda/README.md)
+
+## Terminate resources
+
+```
+$ aws amplify delete-app --app-id d2jvwbzkj7re2a
+{
+     "app": {
+         "appId": "d2jvwbzkj7re2a",
+         "appArn": "arn:aws:amplify:eu-west-2:613877803204:apps/d2jvwbzkj7re2a",
+         "name": "balionis-aws8-web",
+...
+}
+
+$ aws cognito-idp delete-user-pool --user-pool-id "eu-west-2_Vi7WVYVkn"
+
+$ aws lambda delete-function --function-name my-aws8-function
+
+$ aws iam detach-role-policy --role-name my-aws8-lambda-role --policy-arn "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+
+$ aws iam delete-role-policy --role-name my-aws8-lambda-role --policy-name my-aws8-role-policy
+
+$ aws iam delete-role --role-name my-aws8-lambda-role
+
+$ aws dynamodb delete-table --table-name Rides
+{
+    "TableDescription": {
+        "TableName": "Rides",
+        "TableStatus": "DELETING",
+...
+}
+
+$ aws logs describe-log-groups
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/lambda/my-aws8-function",
+            "creationTime": 1600411043198,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:eu-west-2:613877803204:log-group:/aws/lambda/my-aws8-function:*",
+            "storedBytes": 0
+        }
+    ]
+}
+
+$ aws logs delete-log-group --log-group-name ??? 
+// FIXME: "/aws/lambda/my-aws8-function" fails with: Member must satisfy regular expression pattern: [\.\-_/#A-Za-z0-9]+
+
+$ aws apigateway delete-rest-api --rest-api-id '5scvbqk2bc'
+
+$ aws s3 rb s3://balionis-aws8 --force
+delete: s3://balionis-aws8/balionis-aws8-web-1.0-SNAPSHOT.zip
+remove_bucket: balionis-aws8
+
+```
+
+
