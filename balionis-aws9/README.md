@@ -4,6 +4,10 @@ This sandbox is to remind me how to do terraform with docker and aws.
 
 The source for below is https://learn.hashicorp.com/tutorials/terraform/install-cli 
 
+The best-practices for below is https://github.com/aws-samples/apn-blog/tree/tf_blog_v1.0/terraform_demo
+
+# Example1
+
 ## Install terraform
 
 ```
@@ -28,6 +32,8 @@ $ terraform apply
 $ curl -s -X GET http://banote17.balionis.com:8000/
 $ terraform destroy
 ```
+
+# Example 2
 
 ## Configure aws 
 
