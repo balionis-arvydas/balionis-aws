@@ -25,7 +25,9 @@ $ touch main.tf // see contents
 $ terraform init
 $ terraform apply
 $ curl -s -X GET http://banote17.balionis.com:8000/
+$ terraform destroy
 ```
+
 
 ## Configure aws 
 
