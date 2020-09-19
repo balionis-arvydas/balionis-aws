@@ -3,6 +3,7 @@
 This sandbox is to remind me how to do terraform with docker and aws.
 
 The source for below is https://learn.hashicorp.com/tutorials/terraform/install-cli 
+and https://aws.amazon.com/blogs/apn/terraform-beyond-the-basics-with-aws/
 
 The best-practices for below is https://github.com/aws-samples/apn-blog/tree/tf_blog_v1.0/terraform_demo
 
