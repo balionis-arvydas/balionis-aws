@@ -1,0 +1,9 @@
+---
+namespace: default
+commonLabels:
+  app: mock-sync-service
+resources:
+  - deployment.yaml
+  - service.yaml
+generatorOptions:
+  disableNameSuffixHash: false

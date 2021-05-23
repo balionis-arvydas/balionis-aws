@@ -1,0 +1,9 @@
+---
+namespace: default
+resources:
+  - ../base
+  - ../../../env/local
+images:
+  - name: mock-sync-service
+    newName: balionis-aws11-mock-sync-service
+    newTag: latest

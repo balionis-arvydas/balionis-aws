@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-sync-service
+  labels:
+    app: mock-sync-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-sync-service
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mock-sync-service
+    spec:
+      containers:
+        - name: mock-sync-service
+          image: mock-sync-service
+          imagePullPolicy: Always
+          ports:
+            - name: servic
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              memory: 512Mi
+            requests:
+              memory: 64Mi
