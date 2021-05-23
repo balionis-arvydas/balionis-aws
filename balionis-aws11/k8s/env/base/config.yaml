@@ -1,0 +1,14 @@
+---
+varReference:
+  - path: data
+  - path: metadata/annotations
+  - path: metadata/name
+  - path: metadata/namespace
+  - path: spec
+  - path: spec/dnsNmae
+  - path: spec/externalName
+  - path: spec/template/metadata/annotations
+  - path: spec/template/spec/containers/command
+  - path: spec/template/spec/containers/image
+  - path: spec/template/spec/initContainers/image
+  - path: spec/template/spec/volums/configMap/items/path

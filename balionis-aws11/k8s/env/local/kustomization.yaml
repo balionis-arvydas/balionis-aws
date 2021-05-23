@@ -1,0 +1,12 @@
+---
+resources:
+  - ../base
+configMapGenerator:
+  - name: env-config
+    behavior: merge
+    literals:
+      - ENV_ID='local'
+      - VPC_ID='vpc-local-1234'
+      - PRIMARY_SUBNETS='aws.balionis.com'
+      - INTERNAL_DOMAIN_NAME='svc.cluster.local'
+      - EXTERNAL_DOMAIN_NAME='aws.balionis.com'

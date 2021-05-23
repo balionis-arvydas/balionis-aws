@@ -1,0 +1,47 @@
+---
+configurations:
+  - config.yaml
+configMapGenerator:
+  - name: env-config
+    literals:
+      - PREFIX=''
+
+generatorOptions:
+  disableNameSuffixHash: false
+
+vars:
+  - name: ENV_ID
+    fieldref:
+      fieldpath: data.ENV_ID
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
+  - name: VPC_ID
+    fieldref:
+      fieldpath: data.VPC_ID
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
+  - name: PRIMARY_SUBNETS
+    fieldref:
+      fieldpath: data.PRIMARY_SUBNETS
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
+  - name: INTERNAL_DOMAIN_NAME
+    fieldref:
+      fieldpath: data.INTERNAL_DOMAIN_NAME
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
+  - name: EXTERNAL_DOMAIN_NAME
+    fieldref:
+      fieldpath: data.EXTERNAL_DOMAIN_NAME
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
