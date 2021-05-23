@@ -1,0 +1,15 @@
+version: "3.5"
+
+networks:
+  balionis-network:
+    driver: bridge
+    name: balionis-network
+
+services:
+  mock-sync-service:
+    container_name: mock-sync-service
+    image: balionis-aws11-mock-sync-service:latest
+    ports:
+      - 8080:8080
+    networks:
+      - balionis-network

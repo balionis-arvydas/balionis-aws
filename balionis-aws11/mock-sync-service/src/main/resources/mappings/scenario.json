@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/api/scenario/.*"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "responses/scenario/{{request.pathSegments.[2]}}.json"
+  }
+}
