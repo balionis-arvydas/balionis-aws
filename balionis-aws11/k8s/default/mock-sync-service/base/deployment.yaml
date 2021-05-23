@@ -20,10 +20,9 @@ spec:
       containers:
         - name: mock-sync-service
           image: mock-sync-service
-          imagePullPolicy: Always
+          imagePullPolicy: Never
           ports:
-            - name: servic
-              containerPort: 8080
+            - containerPort: 8080
               protocol: TCP
           resources:
             limits:

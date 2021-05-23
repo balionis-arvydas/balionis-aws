@@ -9,6 +9,14 @@ tasks {
         command = "docker build -t $dockerImage:latest ."
     }
 
+    create<ShellExec>("dockerPush") {
+        dependsOn("dockerBuild")
+
+        description = "Push a service docker image to kubernetes"
+        group = "Docker"
+        command = "kind load docker-image --name wsl2 $dockerImage:latest"
+    }
+
     create<ShellExec>("dockerComposeUp") {
         dependsOn("dockerBuild")
 

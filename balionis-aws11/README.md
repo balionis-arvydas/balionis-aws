@@ -53,8 +53,20 @@ Kubernetes master is running at https://127.0.0.1:40471
 ```
 
 ## Apply
-
 ```
 cd k8s \
-    && ENVIRONMENT=local NAMESPACE=default MODULE=config make validate
+    && ENVIRONMENT=local NAMESPACE=default MODULE=mock-sync-service make validate
+```
+
+### Test
+```
+kubectl port-forward service/mock-sync-service 8180:8080
+curl -X GET localhost:8180 
+```
+
+### Troubleshoot
+```
+docker exec -it wsl2-control-plane bash
+crictl images
+ps auxf
 ```
