@@ -1,6 +1,6 @@
 # k8s
 
-## Setup
+## Prepare
 
 ### Kind
 ```
@@ -36,8 +36,32 @@ curl -Lo ~/tmp/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.18.9/2020
     && kubectl version
 ```
 
+## Build & Deploy (Zero-To-Hero)
+```
+cd k8s \ 
+  && make kind-create-cluster \
+  && ENVIRONMENT=local NAMESPACE=ingress-nginx MODULE=ingress-nginx make apply \
+  && cd ..
+
+./gradlew clean mock-sync-service:dockerPush
+
+cd k8s \ 
+  && ENVIRONMENT=local NAMESPACE=default MODULE=mock-sync-service make apply \
+  && ENVIRONMENT=local NAMESPACE=default MODULE=mock-ingress make apply \
+  && cd ..  
+```
+
+## Cleanup
+```
+cd k8s \ 
+  && make kind-delete-cluster \
+  && docker system prune -f \
+  && docker volume prune -f
+```
+
 ## Test
 
+### Test cluster
 ```
 kind get clusters
 wsl2
@@ -48,14 +72,6 @@ kubectl cluster-info --context kind-wsl2
 Kubernetes master is running at https://127.0.0.1:40471
 ...
 ```
-
-## Apply
-```
-cd k8s \
-    && ENVIRONMENT=local NAMESPACE=default MODULE=mock-sync-service make validate
-```
-
-## Test
 
 ### Test service
 ```

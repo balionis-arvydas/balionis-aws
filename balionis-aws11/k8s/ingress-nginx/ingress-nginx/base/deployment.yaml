@@ -1,4 +1,5 @@
-
+---
+# Source: https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
 apiVersion: v1
 kind: Namespace
 metadata:
