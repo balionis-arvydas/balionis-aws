@@ -7,3 +7,4 @@ configMapGenerator:
     literals:
       - ENV_ID='local'
       - ENV_PREFIX='my-'
+      - EXTERNAL_DOMAIN_NAME='aws11.balionis.com'

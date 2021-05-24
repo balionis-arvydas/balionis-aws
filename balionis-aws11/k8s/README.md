@@ -56,9 +56,16 @@ cd k8s \
 ```
 
 ## Test
+
+### Test service
 ```
 kubectl port-forward service/mock-sync-service 8180:8080
 curl -X GET localhost:8180/api/scenario/s0 
+```
+
+### Test ingress
+```
+curl -X GET http://localhost/api/scenario/s0
 ```
 
 ## Troubleshoot

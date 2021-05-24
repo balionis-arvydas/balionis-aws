@@ -1,0 +1,6 @@
+---
+namespace: ingress-nginx
+resources:
+  - deployment.yaml
+generatorOptions:
+  disableNameSuffixHash: false

@@ -17,3 +17,10 @@ vars:
       kind: ConfigMap
       name: env-config
       apiVersion: v1
+  - name: EXTERNAL_DOMAIN_NAME
+    fieldref:
+      fieldpath: data.EXTERNAL_DOMAIN_NAME
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
