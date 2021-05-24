@@ -11,4 +11,4 @@ varReference:
   - path: spec/template/spec/containers/command
   - path: spec/template/spec/containers/image
   - path: spec/template/spec/initContainers/image
-  - path: spec/template/spec/volums/configMap/items/path
+  - path: spec/template/spec/volumes/configMap/items/path
