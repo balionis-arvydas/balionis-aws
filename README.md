@@ -4,5 +4,6 @@
 * balionis-aws09 - terraform, docker, awscli
 * balionis-aws10 - elb,nodejs,cognito,terraform
 * balionis-aws11 - local k8s with kind, kustomize
+* balionis-aws12 - local eks 
 
 
