@@ -9,7 +9,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
 ### 1 Create EKS Cluster Role
 
 ```shell
-make create-cluster-role
+ENVIRONMENT=dev PROJECT=camunda make create-cluster-role
 ```
 
 ### 2 Create Cluster

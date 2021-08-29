@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: EKS Cluster Role
+Parameters:
+  ProjectName:
+    Type: String
+    Default: ''
+  EnvironmentName:
+    Type: String
+    AllowedValues:
+      - prod
+      - uat
+      - sit
+      - dev
+Resources:
+  myAmazonEKSClusterRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: !Sub ${ProjectName}-${EnvironmentName}-AmazonEKSClusterRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - eks.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/AmazonEKSClusterPolicy'
+      Tags:
+        - Key: Name
+          Value: !Ref EnvironmentName
+        - Key: CostAllocation
+          Value: !Ref ProjectName
+Outputs:
+  ClusterRoleName:
+    Description: Name of EKS Cluster Role.
+    Value: !Ref myAmazonEKSClusterRole

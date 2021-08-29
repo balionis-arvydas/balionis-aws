@@ -16,7 +16,23 @@ ifndef AWS_REGION
 	$(error AWS_REGION is undefined)
 endif
 
-create-cluster-role:	## - create eks cluster role
+has-environment:	## - make sure environment variable is defined.
+ifndef ENVIRONMENT
+	$(error ENVIRONMENT is undefined)
+endif
+
+has-project:	## - make sure project variable is defined.
+ifndef PROJECT
+	$(error PROJECT is undefined)
+endif
+
+create-cluster-role: has-environment has-project 	## - create eks cluster role with cloud formation
+	aws cloudformation deploy --stack-name eks-cluster-role-$(PROJECT)-$(ENVIRONMENT) \
+	--template-file ./eks-cluster-role.yaml \
+	--capabilities CAPABILITY_NAMED_IAM \
+	--parameter-overrides "ProjectName=$(PROJECT)" "EnvironmentName=$(ENVIRONMENT)"
+
+create-cluster-role-deprecated:	## - create eks cluster role with aws cli
 	aws iam create-role \
 	  --role-name myAmazonEKSClusterRole \
 	  --assume-role-policy-document file://"resources/cluster-role-trust-policy.json" && \
